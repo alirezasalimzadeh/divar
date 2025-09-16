@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% for ad in ads %}
+    <h3>{{ ad.title }}</h3>
+    <p>
+        دسته‌بندی:
+        {% for cat in ad.category.get_full_path %}
+            {{ cat.name }}{% if not forloop.last %} → {% endif %}
+        {% endfor %}
+    </p>
+{% endfor %}
+</body>
+</html>
